@@ -71,7 +71,7 @@ exports.toggleTask = async (req, res) => {
       return res.status(401).json({ msg: 'User not authorized' });
     }
     task.status = (task.status === 'completed') ? 'pending' : 'completed';
-    task.createdAt = Date.now();
+    task.completedAt = Date.now();
     await task.save();
     res.json(task);
   } catch (err) {
